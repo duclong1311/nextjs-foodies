@@ -1,15 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import logoImg from "@/assets/logo.png";
+import styles from "@/components/main-header.module.css";
 
 export default function MainHeader() {
-    return <header>
-        <Link href={"/"}>
-            <img src={logoImg} alt="A plate with food on it" />
+    return <header className={styles.header}>
+        <Link className={styles.logo} href={"/"}>
+            <Image src={logoImg} alt="A plate with food on it" priority />
             NextLevel Food
         </Link>
 
-        <nav>
+        <nav className={styles.nav}>
             <ul>
                 <li>
                     <Link href={"/meals"}>Browse Meals</Link>
@@ -24,3 +26,5 @@ export default function MainHeader() {
         </nav>
     </header>
 }
+
+//optimize image with Image component
